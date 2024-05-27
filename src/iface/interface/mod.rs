@@ -75,7 +75,7 @@ use check;
 /// a dependency on heap allocation, it instead owns a `BorrowMut<[T]>`, which can be
 /// a `&mut [T]`, or `Vec<T>` if a heap is available.
 pub struct Interface {
-    pub(crate) inner: InterfaceInner,
+    pub inner: InterfaceInner,
     fragments: FragmentsBuffer,
     fragmenter: Fragmenter,
 }
@@ -93,7 +93,7 @@ pub struct InterfaceInner {
     rand: Rand,
 
     #[cfg(any(feature = "medium-ethernet", feature = "medium-ieee802154"))]
-    neighbor_cache: NeighborCache,
+    pub neighbor_cache: NeighborCache,
     hardware_addr: HardwareAddress,
     #[cfg(feature = "medium-ieee802154")]
     sequence_no: u8,
